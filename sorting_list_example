@@ -1,0 +1,52 @@
+void main() {
+  List<People> peopleList = [
+
+    People('CALVIN_A',false, DateTime(2020,9,1,10,0),false),
+    People('CALVIN_A',false, DateTime(2020,9,1,10,0),false),
+    People('CALVIN_A',false, DateTime(2020,9,1,10,0),false),
+    People('CALVIN_A',true, DateTime(2020,9,1,10,0),false),
+    People('CALVIN_A',false, DateTime(2020,9,1,10,0),false),
+    People('CALVIN_A',true, DateTime(2020,9,2,10,0),false),
+    People('CALVIN_A',false, DateTime(2020,9,1,10,0),false),
+    People('CALVIN_A',false, DateTime(2020,9,1,10,0),false),
+    
+    People('CALVIN_A_T',false, DateTime(2020,9,1,10,0),false),
+    People('CALVIN_A_T',true, DateTime(2020,9,1,10,0),false),
+
+  ];
+  
+  peopleList.sort(
+  (a,b){
+    int compare =-5;
+    compare = b.name.compareTo(a.name);
+    if(compare ==0){
+      compare = b.isAttend.toString().compareTo(a.isAttend.toString());
+    }
+    
+    if(compare ==0){
+      compare = b.comeInTime.compareTo(a.comeInTime);
+    }
+    
+    
+    return compare;
+  });
+  peopleList.forEach(
+    (e){      
+      print(e.name+' '+e.isAttend.toString()+' '+e.comeInTime.toString()+' '+e.isMember.toString());
+    }
+  );
+}
+
+class People{
+  const People(
+    this.name,
+    this.isAttend,
+    this.comeInTime,
+    this.isMember,
+  );
+  
+  final String name;
+  final bool isAttend;
+  final DateTime comeInTime;
+  final bool isMember;
+}
